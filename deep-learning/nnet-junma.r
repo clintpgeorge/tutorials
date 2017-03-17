@@ -95,6 +95,8 @@ nnetPred <- function(X, para = list()) {
 set.seed(2017)
 
 
+
+
 ## Generate spiral data -----
 
 N <- 200 # number of points per class
@@ -162,6 +164,7 @@ nnet.model <-
   )
 
 predicted_class <- nnetPred(X, nnet.model)
+
 print(paste('Training Accuracy:', mean(predicted_class == (y))))
 
 ## Visualize the classifier ----
@@ -243,3 +246,4 @@ sindex <- sample(1:nrow(X.valid), 1)
 predicted_test <- nnetPred(t(X.valid[sindex,]), nnet.mnist)
 print(paste('The predicted digit is:', predicted_test - 1))
 displayDigit(pixels[-train.index,][sindex,])
+
